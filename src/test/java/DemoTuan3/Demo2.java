@@ -5,15 +5,13 @@ import bsh.util.JConsole;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import javax.swing.plaf.SliderUI;
 import java.sql.DriverManager;
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +25,7 @@ public class Demo2 {
         WebDriverManager.chromedriver().setup();
         log.info("Mở trình duyệt web");
         driver = new ChromeDriver();
-        log.info("mở trang BHX");   
+        log.info("mở trang BHX");
         driver.get("https://www.bachhoaxanh.com/?view=mobie");
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(40,TimeUnit.SECONDS);
@@ -65,8 +63,8 @@ public class Demo2 {
     @Test
     public void location(){
         log.info("click banner back lại trang chủ");
-        WebElement f = driver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/a[1]"));
-        f.click();
+//        WebElement f = driver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/a[1]"));
+//        f.click();
         log.info("chọn location");
         WebElement location = driver.findElement(By.className("loca-parentwrapper"));
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
@@ -80,25 +78,34 @@ public class Demo2 {
         sleep(1000);
         nearlocation.click();
     }
-    @Test
+    @Test(dependsOnMethods = "location")
     public void addProduct(){
-        log.info("chọn sp thứ ở trang chủ");
-        WebElement g= driver.findElement(By.cssSelector("body > section > div.colcontent > div.righthome > div.linehome__item.linehome__item--promotion > div.linehome__item__products > ul > li:nth-child(2) > div.box-buy > a > div.buy"));
-        g.click();
-        sleep(1000);
-        log.info("click vào cart");
-        WebElement h = driver.findElement(By.className("icon-cart"));
-        h.click();
-        log.info("giỏ hàng tiếp tục");
         driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
-        WebElement i = driver.findElement(By.cssSelector("#header > div.line-second-head > div.menu-search > form > a > span > i"));
-        i.click();
+        log.info("chọn sp thứ ở trang chủ");
+        WebElement g= driver.findElement(By.className("showAllCate"));
+        g.click();
+        sleep(2000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector(\"li[class='productpromo-count'] a\").click()");
+        sleep(1000);
+        driver.findElement(By.xpath("//*[@id=\"8686\"]/div[3]/ul/li[2]/div[4]/a/div[2]")).click();
+        sleep(1000);
+        log.info("Dẫn qua giỏ hàng ");
+        driver.navigate().to("https://www.bachhoaxanh.com/gio-hang");
+        driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
+        sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[3]/div[3]/div[3]/div[2]/button")).click();
     }
-    @AfterSuite
-    public void stopWebDrive(){
-        driver.quit();
-        System.out.println("Đã đóng trình duyệt");
+    @Test(dependsOnMethods ="addProduct")
+    public void cart2(){
+
     }
+
+//    @AfterSuite
+//    public void stopWebDrive(){
+//        driver.quit();
+//        System.out.println("Đã đóng trình duyệt");
+//    }
     public void sleep(int time){
         try {
             Thread.sleep(time);

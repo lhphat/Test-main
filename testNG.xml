@@ -5,7 +5,8 @@
         <classes>
             <class name="DemoTuan3.Demo2">
 
-                <methods><include name="login"/>
+                <methods>
+                    <include name="login"/>
                     <include name="location"></include>
                     <include name="addProduct"></include>
                 </methods>
