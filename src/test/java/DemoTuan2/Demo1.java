@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class Demo1 {
+public class    Demo1 {
     Select select;
     Random rand;
     WebDriver driver;

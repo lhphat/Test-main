@@ -15,11 +15,13 @@ import javax.swing.plaf.SliderUI;
 import java.sql.DriverManager;
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.Alert;
 
 import static org.apache.logging.log4j.LogManager.*;
 
 public class Demo2 {
     WebDriver driver;
+    JavascriptExecutor js = (JavascriptExecutor) driver;
     @BeforeSuite
     public void OpenBHX () {
         WebDriverManager.chromedriver().setup();
@@ -81,12 +83,14 @@ public class Demo2 {
     @Test(dependsOnMethods = "location")
     public void addProduct(){
         driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
-        log.info("chọn sp thứ ở trang chủ");
-        WebElement g= driver.findElement(By.className("showAllCate"));
+        sleep(1000);
+        log.info("chọn Menu ở trang chủ");
+        WebElement g= driver.findElement(By.xpath("(//a[@class='showAllCate'])[1]"));
         g.click();
+        log.info("trang km");
         sleep(2000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.querySelector(\"li[class='productpromo-count'] a\").click()");
+        driver.findElement(By.cssSelector(".productpromo-count")).click();
+//        js.executeAsyncScript("document.querySelector(\"li[class='productpromo-count'] a\").click()");
         sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"8686\"]/div[3]/ul/li[2]/div[4]/a/div[2]")).click();
         sleep(1000);
@@ -96,9 +100,52 @@ public class Demo2 {
         sleep(1000);
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div[3]/div[2]/button")).click();
     }
-    @Test(dependsOnMethods ="addProduct")
+    @Test(dependsOnMethods ={"location","addProduct"})
     public void cart2(){
+        //Số Điện Thoại
+        log.info("SĐT");
+        driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
+        sleep(500);
+        WebElement SDT=driver.findElement(By.xpath("(//input[@id='ProfileItems_0_CustomerPhone'])[1]"));
+        SDT.click();
+        SDT.sendKeys("0938727300");
+        sleep(500);
+        //Giới tính
+        driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
+        log.info("Nhập giới tính");
+        WebElement rdb_gioiTinh_Anh = driver.findElement(By.xpath("//label[@for='ProfileItems_0_Gender1']"));
+        WebElement rdb_gioiTinh_Chi = driver.findElement(By.xpath("//label[@for='ProfileItems_0_Gender0']"));
+        if (rdb_gioiTinh_Anh.isSelected()) {
+            System.out.println("Đã chọn giới tính Anh rồi!");
+        } else if (rdb_gioiTinh_Chi.isSelected()) {
+            System.out.println("Đã chọn giới tính Chị rồi!");
+        } else {
+            System.out.println("Giới tính chưa được chọn!");
+            rdb_gioiTinh_Chi.click();
+            System.out.println("Đã chọn giới tính là Chị");
+        }
 
+        //Nhập Họ Tên
+        log.info("Nhập họ tên");
+        WebElement box_HoTen = driver.findElement(By.id("ProfileItems_0_CustomerName"));
+        box_HoTen.click();
+        sleep(1000);
+        box_HoTen.sendKeys("IT test Automation");
+        sleep(500);
+
+        //Nhập địa chỉ
+        WebElement box_Address = driver.findElement(By.id("ProfileItems_0_Address"));
+        box_Address.click();
+        sleep(1000);
+        box_Address.sendKeys("IT test 123 - Automation");
+        sleep(500);
+
+        //Scroll tới text "*Lưu ý quy định tòa nhà/chung cư khi yêu cầu mang lên lầu"
+        //đã thử Scroll to dropdown ngày nhận thì bị che bởi header
+        js = (JavascriptExecutor) driver;
+        WebElement txt_apartmentnote = driver.findElement(By.xpath("//strong[@class='apartmentnote']"));
+        js.executeScript("arguments[0].scrollIntoView(true);", txt_apartmentnote);
+        sleep(2000);
     }
 
 //    @AfterSuite
