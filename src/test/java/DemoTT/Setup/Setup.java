@@ -62,8 +62,8 @@ public class Setup {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
-    @AfterClass
-    public void Shutdown() throws Exception{
-        driver.quit();
-    }
+//    @AfterClass
+//    public void Shutdown() throws Exception{
+//        driver.quit();
+//    }
 }

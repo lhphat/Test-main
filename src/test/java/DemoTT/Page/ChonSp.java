@@ -14,6 +14,11 @@ public class ChonSp {
     private WebDriver driver;
     private By Chonmua= By.xpath("//li[3]//div[1]//button[1]");
     private By GioHang=By.xpath("//a[contains(text(),'Xem giỏ hàng')]");
+
+    public ChonSp(WebDriver driver) {
+        this.driver = driver;
+    }
+
     public void scroll()
     {
         JavascriptExecutor js = (JavascriptExecutor) driver; //khởi tạo biến js

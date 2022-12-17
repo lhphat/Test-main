@@ -1,9 +1,4 @@
-2022-12-09 15:37:22.425 [main] INFO  DemoTuan3.Demo2 - Mở trình duyệt web
-2022-12-09 15:37:26.259 [main] INFO  DemoTuan3.Demo2 - mở trang BHX
-2022-12-09 15:37:26.998 [main] INFO  DemoTuan3.Demo2 - click banner back lại trang chủ
-2022-12-09 15:37:27.000 [main] INFO  DemoTuan3.Demo2 - chọn location
-2022-12-09 15:37:27.088 [main] INFO  DemoTuan3.Demo2 - click location
-2022-12-09 15:37:29.210 [main] INFO  DemoTuan3.Demo2 - chọn địa chỉ của bạn
-2022-12-09 15:37:29.233 [main] INFO  DemoTuan3.Demo2 - click chọn địa chỉ của bạn
-2022-12-09 15:37:31.304 [main] INFO  DemoTuan3.Demo2 - chọn Menu ở trang chủ
-2022-12-09 15:37:32.655 [main] INFO  DemoTuan3.Demo2 - trang km
+2022-12-17 19:20:20.948 [main] INFO  DemoTT.Page.ChonSp - Chon mua sp
+2022-12-17 19:20:23.559 [main] INFO  DemoTT.Page.ChonSp - GioHang
+2022-12-17 19:20:27.649 [main] INFO  DemoTT.Page.GioHang - GioiTinh
+2022-12-17 19:20:27.649 [main] INFO  DemoTT.Page.GioHang - Nhap thong tin DH

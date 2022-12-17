@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 public class Testcase extends Setup {
-    WebDriver driver;
+    private WebDriver driver;
 
-    ChonSp SP;
+    ChonSp chonsanpham;
     TrangChu trangchu;
     GioHang giohang;
 
@@ -19,12 +19,13 @@ public class Testcase extends Setup {
         driver = getDriver();
     }
     @Test
-    public void Giaotainha(){
+    public void Giaotainha()
+    {
         trangchu=new TrangChu(driver);
         trangchu.ClickMenuThietBi();
         trangchu.Kittest();
-        SP=new ChonSp();
-        SP.muaspgiohang();
+        chonsanpham=new ChonSp(driver);
+        chonsanpham.muaspgiohang();
         giohang=new GioHang(driver);
         giohang.OrderGiao("Phuc","0938727300","40400");
     }
