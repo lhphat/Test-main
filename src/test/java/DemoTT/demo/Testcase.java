@@ -28,7 +28,7 @@ public class Testcase extends Setup {
         chonsanpham=new ChonSp(driver);
         chonsanpham.muaspgiohang();
         giohang=new GioHang(driver);
-        giohang.OrderGiao("Phuc","0938727300","40400");
+        giohang.OrderGiao("Phuc","0938727300","12344567");
         lichsumuahang=new LSMH(driver);
         lichsumuahang.loggin();
         lichsumuahang.DNLSMH("0938727300");

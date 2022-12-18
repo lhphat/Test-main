@@ -39,12 +39,15 @@ public class GioHang {
         driver.findElement(dropdownTP).click();
         sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        //HCM
         js.executeScript("document.querySelector(\"form[class='active'] div[class='btn-click country'] button[type='button']\").click()");
         driver.findElement(dropdownQH).click();
         sleep(2000);
+        //Thu Duc
         js.executeScript("document.querySelector(\"div[class='btn-click district'] aside:nth-child(1) span:nth-child(1)\").click()");
         driver.findElement(dropdownPX).click();
         sleep(2000);
+        //An Khanh
         js.executeScript("document.querySelector(\"div[class='wards'] aside:nth-child(1) span:nth-child(1)\").click()");
         WebElement NhapDiaChi = driver.findElement(Nhapdiachi);
         if (NhapDiaChi.isDisplayed()) {
