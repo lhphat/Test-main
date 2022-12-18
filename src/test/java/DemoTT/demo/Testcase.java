@@ -22,13 +22,13 @@ public class Testcase extends Setup {
     @Test
     public void Giaotainha()
     {
-//        trangchu=new TrangChu(driver);
-//        trangchu.ClickMenuThietBi();
-//        trangchu.Kittest();
-//        chonsanpham=new ChonSp(driver);
-//        chonsanpham.muaspgiohang();
-//        giohang=new GioHang(driver);
-//        giohang.OrderGiao("Phuc","0938727300","40400");
+        trangchu=new TrangChu(driver);
+        trangchu.ClickMenuThietBi();
+        trangchu.Kittest();
+        chonsanpham=new ChonSp(driver);
+        chonsanpham.muaspgiohang();
+        giohang=new GioHang(driver);
+        giohang.OrderGiao("Phuc","0938727300","40400");
         lichsumuahang=new LSMH(driver);
         lichsumuahang.loggin();
         lichsumuahang.DNLSMH("0938727300");

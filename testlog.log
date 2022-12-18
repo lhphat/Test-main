@@ -1,2 +1,9 @@
-2022-12-18 02:38:21.698 [main] INFO  DemoTT.Page.LSMH - loggin
-2022-12-18 02:38:21.737 [main] INFO  DemoTT.Page.LSMH - DangNhap
+2022-12-18 22:17:29.296 [main] INFO  DemoTT.Page.ChonSp - Chon mua sp
+2022-12-18 22:17:31.901 [main] INFO  DemoTT.Page.ChonSp - GioHang
+2022-12-18 22:17:36.064 [main] INFO  DemoTT.Page.GioHang - GioiTinh
+2022-12-18 22:17:36.064 [main] INFO  DemoTT.Page.GioHang - Nhap thong tin DH
+2022-12-18 22:17:36.273 [main] INFO  DemoTT.Page.GioHang - Diachi
+2022-12-18 22:17:42.789 [main] INFO  DemoTT.Page.GioHang - GioiTinh
+2022-12-18 22:17:45.822 [main] INFO  DemoTT.Page.GioHang - DatHang
+2022-12-18 22:17:48.985 [main] INFO  DemoTT.Page.LSMH - loggin
+2022-12-18 22:17:51.114 [main] INFO  DemoTT.Page.LSMH - DangNhap

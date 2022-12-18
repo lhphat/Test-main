@@ -64,7 +64,6 @@ public class Demo2 {
         nearlocation.click();
         driver.manage().timeouts().pageLoadTimeout(40,TimeUnit.SECONDS);
         sleep(5000);
-        //Cái này em muốn dùng if vì nếu dính sản phẩm hiển thị pop-up mua 1 chai hoặc 1 thùng thì sẽ chọn sp khác nhưng chưa tìm hiểu cách làm
         WebElement g= driver.findElement(By.cssSelector("body > section > div.colcontent > div.righthome > div.linehome__item.linehome__item--promotion > div.linehome__item__products > ul > li:nth-child(2) > div.box-buy > a > div.buy"));
         g.click();
         sleep(1000);

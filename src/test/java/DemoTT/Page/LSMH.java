@@ -4,6 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class LSMH {
     WebDriver driver;
@@ -21,12 +23,18 @@ public class LSMH {
             this.driver = driver;
         }
     }
-    Keys cmdCtrl = Platform.getCurrent().is(Platform.WINDOWS) ? Keys.COMMAND : Keys.CONTROL;
 
-    public void loggin(){
-        String oldTab = driver.getWindowHandle();
+    public void loggin() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open('https://staging.nhathuocankhang.com/lsmh/dang-nhap','_blank');");
+        String mainWindow = driver.getWindowHandle();
+        Set<String> set = driver.getWindowHandles();
+        for (String child : set) {
+            if (!mainWindow.equals(child)) {
+                driver.switchTo().window(child);
+                sleep(1000);
+            }
+        }
     }
     public void DangNhap(String sdt){
         WebElement NhapSDT = driver.findElement(SDT);
@@ -49,5 +57,12 @@ public class LSMH {
         log.debug("debug log");
         log.error("error log");
         log.info("info log");
+    }
+    public void sleep(int time){
+        try {
+            Thread.sleep(time);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
