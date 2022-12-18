@@ -1,4 +1,5 @@
 package DemoTT.demo;
+import DemoTT.Page.LSMH;
 import DemoTT.Setup.Setup;
 import DemoTT.Page.ChonSp;
 import DemoTT.Page.GioHang;
@@ -13,7 +14,7 @@ public class Testcase extends Setup {
     TrangChu trangchu;
     GioHang giohang;
 
-
+    LSMH lichsumuahang;
     @BeforeClass
     public void setup() {
         driver = getDriver();
@@ -21,12 +22,15 @@ public class Testcase extends Setup {
     @Test
     public void Giaotainha()
     {
-        trangchu=new TrangChu(driver);
-        trangchu.ClickMenuThietBi();
-        trangchu.Kittest();
-        chonsanpham=new ChonSp(driver);
-        chonsanpham.muaspgiohang();
-        giohang=new GioHang(driver);
-        giohang.OrderGiao("Phuc","0938727300","40400");
+//        trangchu=new TrangChu(driver);
+//        trangchu.ClickMenuThietBi();
+//        trangchu.Kittest();
+//        chonsanpham=new ChonSp(driver);
+//        chonsanpham.muaspgiohang();
+//        giohang=new GioHang(driver);
+//        giohang.OrderGiao("Phuc","0938727300","40400");
+        lichsumuahang=new LSMH(driver);
+        lichsumuahang.loggin();
+        lichsumuahang.DNLSMH("0938727300");
     }
 }

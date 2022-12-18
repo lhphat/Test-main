@@ -60,7 +60,7 @@ public class GioHang {
     log.info("Diachi");
     Diachi(diachi);
     log.info("GioiTinh");
-    sleep(2000);
+    sleep(3000);
     js.executeScript("document.querySelector(\"body > div:nth-child(10) > section:nth-child(1) > div:nth-child(2) > div:nth-child(3) > form:nth-child(2) > div:nth-child(1) > span:nth-child(2) > i:nth-child(1)\").click();");
     log.info("DatHang");
     sleep(2000);
