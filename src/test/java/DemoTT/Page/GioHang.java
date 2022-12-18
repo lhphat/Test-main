@@ -52,7 +52,7 @@ public class GioHang {
         }
     }
     public void OrderGiao(String Name,String sdt,String diachi){
-    sleep(2000);
+    sleep(4000);
     log.info("GioiTinh");
     JavascriptExecutor js = (JavascriptExecutor) driver;
     log.info("Nhap thong tin DH");
@@ -61,9 +61,11 @@ public class GioHang {
     Diachi(diachi);
     log.info("GioiTinh");
     sleep(3000);
+    //Radio button giới tính Nam
     js.executeScript("document.querySelector(\"body > div:nth-child(10) > section:nth-child(1) > div:nth-child(2) > div:nth-child(3) > form:nth-child(2) > div:nth-child(1) > span:nth-child(2) > i:nth-child(1)\").click();");
     log.info("DatHang");
     sleep(2000);
+    //Button đặt hàng
     js.executeScript("document.querySelector(\"button[type='button'] b\").click()");
     }
     static Logger log = LogManager.getLogger(GioHang.class.getName());

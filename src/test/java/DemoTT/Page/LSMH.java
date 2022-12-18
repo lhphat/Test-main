@@ -26,6 +26,7 @@ public class LSMH {
 
     public void loggin() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        //Link tới trang dang nhap
         js.executeScript("window.open('https://staging.nhathuocankhang.com/lsmh/dang-nhap','_blank');");
         String mainWindow = driver.getWindowHandle();
         Set<String> set = driver.getWindowHandles();
@@ -47,8 +48,6 @@ public class LSMH {
         driver.findElement(dangnhap).submit();
     }
     public void DNLSMH(String sdt){
-     log.info("loggin");
-     loggin();
      log.info("DangNhap");
      DangNhap(sdt);
     }
