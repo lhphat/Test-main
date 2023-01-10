@@ -15,6 +15,7 @@ public class ChonSp {
     private By Chonmua= By.xpath("//li[3]//div[1]//button[1]");
     private By GioHang=By.xpath("//a[contains(text(),'Xem giỏ hàng')]");
 
+
     public ChonSp(WebDriver driver) {
         this.driver = driver;
     }
@@ -22,16 +23,14 @@ public class ChonSp {
     public void scroll()
     {
         JavascriptExecutor js = (JavascriptExecutor) driver; //khởi tạo biến js
-            js.executeScript("window.scrollTo(0,200)"); // scroll trang
-            sleep(1000);
-            js.executeScript("window.scrollTo(200,0)"); // scroll trang
-            sleep(1500);
+        WebElement element1 = driver.findElement(By.xpath("//img[@alt='Vớ, đai y khoa']"));
+        js.executeScript("arguments[0].scrollIntoView(true);", element1);
     }
     public void muasp(){
-    driver.findElement(Chonmua).click();
+        driver.findElement(Chonmua).click();
     }
     public void giohang() {
-    driver.findElement(GioHang).click();
+        driver.findElement(GioHang).click();
     }
     public void sleep(int time){
         try {
@@ -41,11 +40,11 @@ public class ChonSp {
         }
     }
     public void muaspgiohang(){
-    log.info("Chon mua sp");
-    scroll();
-    muasp();
-    log.info("GioHang");
-    giohang();
+        log.info("Chon mua sp");
+        scroll();
+        muasp();
+        log.info("GioHang");
+        giohang();
     }
     static Logger log = LogManager.getLogger(ChonSp.class.getName());
     public static void main(String[]args){

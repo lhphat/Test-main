@@ -3,7 +3,7 @@ import DemoTT.Page.LSMH;
 import DemoTT.Setup.Setup;
 import DemoTT.Page.ChonSp;
 import DemoTT.Page.GioHang;
-import DemoTT.Page.TrangChu;
+import DemoTT.page.TrangChu;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -28,9 +28,11 @@ public class Testcase extends Setup {
         chonsanpham=new ChonSp(driver);
         chonsanpham.muaspgiohang();
         giohang=new GioHang(driver);
-        giohang.OrderGiao("Phuc","0938727300","12344567");
+        giohang.OrderGiao("It test","0938727300","12344567");
         lichsumuahang=new LSMH(driver);
-        lichsumuahang.loggin();
+        lichsumuahang.loggin(driver.getWindowHandle());
         lichsumuahang.DNLSMH("0938727300");
+        lichsumuahang.HuyDH(driver.getWindowHandle());
+        //lichsumuahang.ReloadTrang(driver.getWindowHandle());
     }
 }

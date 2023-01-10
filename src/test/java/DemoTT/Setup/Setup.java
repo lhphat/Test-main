@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -24,7 +23,7 @@ public class Setup {
             case "chrome":
                 driver = ChromeDriver(webURL);
                 break;
-            case "firefox":
+            case "Edge":
                 driver = Edge(webURL);
                 break;
             default:
@@ -62,8 +61,8 @@ public class Setup {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
-//    @AfterClass
-//    public void Shutdown() throws Exception{
-//        driver.quit();
-//    }
+    @AfterClass
+    public void Shutdown() throws Exception{
+        driver.quit();
+    }
 }
